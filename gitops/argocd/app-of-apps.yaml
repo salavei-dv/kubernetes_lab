@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-username/kubernetes_lab.git
+    repoURL: https://github.com/salavei-dv/kubernetes_lab.git
     targetRevision: HEAD
     path: gitops/argocd/applications
   destination:
