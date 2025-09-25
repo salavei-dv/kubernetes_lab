@@ -1,0 +1,18 @@
+# kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Указываем, что наша база - это оригинальный файл Flannel из интернета
+resources:
+  - https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
+
+# Указываем, какой патч применить к этой базе
+patches:
+  - path: flannel-patch.yaml
+    target:
+      # Явно выбираем ресурс, к которому будет применен патч
+      group: apps
+      version: v1
+      kind: DaemonSet
+      name: kube-flannel-ds
+      namespace: kube-flannel

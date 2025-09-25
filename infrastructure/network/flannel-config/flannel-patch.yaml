@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: kube-flannel-ds
+  namespace: kube-flannel
+spec:
+  template:
+    spec:
+      containers:
+        - name: kube-flannel
+          # Мы полностью заменяем оригинальный массив 'args' на наш собственный,
+          # который включает все нужные флаги.
+          args:
+            - --ip-masq
+            - --kube-subnet-mgr
+            - --iface=enp0s8 # Наш главный аргумент!

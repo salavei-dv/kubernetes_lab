@@ -1,0 +1,1 @@
+vagrant ssh controlplane -c "sudo cat /etc/kubernetes/admin.conf" > ~/.kube/config

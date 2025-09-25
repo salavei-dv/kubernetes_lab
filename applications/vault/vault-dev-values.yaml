@@ -1,0 +1,26 @@
+# vault-dev-values.yaml
+global:
+  # Обязательный параметр
+  openshift: false
+
+# Включаем и настраиваем пользовательский интерфейс Vault
+ui:
+  enabled: true
+  # Используем NodePort, чтобы получить доступ к UI извне кластера (с нашего хост-компьютера)
+  serviceType: "NodePort" 
+
+injector:
+  enabled: true
+
+server:
+  # Включаем режим разработки. Это ключ к простой установке!
+  dev:
+    enabled: true
+
+  # Даже в dev-режиме, мы хотим, чтобы Helm создал для нас StatefulSet,
+  # что является хорошей практикой. Для этого мы включаем HA (High Availability)
+  # и выбираем встроенное хранилище Raft.
+  ha:
+    enabled: true
+    raft:
+      enabled: true
