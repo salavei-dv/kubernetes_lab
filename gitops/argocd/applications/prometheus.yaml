@@ -14,7 +14,7 @@ spec:
         server:
           service:
             type: NodePort
-            nodePort: 30090
+            nodePort: 30093
         alertmanager:
           enabled: false
         pushgateway:
