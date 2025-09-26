@@ -18,6 +18,7 @@ Vagrant.configure("2") do |config|
     storage.vm.provider "virtualbox" do |vb|
       vb.memory = "1024"
       vb.cpus = "1"
+      vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
       vb.linked_clone = true
     end
     storage.vm.provision "shell", inline: <<-SHELL
@@ -39,7 +40,7 @@ Vagrant.configure("2") do |config|
     master.vm.hostname = "controlplane"
     master.vm.network "private_network", ip: CONTROLPLANE_IP
     master.vm.provider "virtualbox" do |vb|
-      vb.memory = "4096"
+      vb.memory = "2048"
       vb.cpus = "2"
       vb.linked_clone = true
     end
