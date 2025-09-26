@@ -11,6 +11,8 @@ spec:
     targetRevision: 77.10.0
     helm:
       values: |
+        crds:
+          enabled: true
         prometheus:
           service:
             type: NodePort
@@ -28,3 +30,5 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true
+      - Replace=true

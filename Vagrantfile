@@ -62,8 +62,8 @@ Vagrant.configure("2") do |config|
       worker.vm.hostname = "node0#{i}"
       worker.vm.network "private_network", ip: "#{NETWORK_BASE}.#{10 + i}"
       worker.vm.provider "virtualbox" do |vb|
-        vb.memory = "2048"
-        vb.cpus = "1"
+        vb.memory = "3072"
+        vb.cpus = "2"
         vb.linked_clone = true
       end
       worker.vm.provision "shell", path: "infrastructure/vagrant/scripts/common.sh"
