@@ -15,8 +15,6 @@ spec:
           service:
             type: NodePort
             nodePort: 30090
-          persistentVolume:
-            enabled: false
           nodeSelector: {}
           affinity: {}
           tolerations: []

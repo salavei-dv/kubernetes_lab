@@ -14,8 +14,6 @@ spec:
         service:
           type: NodePort
           nodePort: 30092
-        persistence:
-          enabled: false
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
