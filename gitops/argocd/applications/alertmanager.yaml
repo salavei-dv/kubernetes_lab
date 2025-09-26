@@ -14,7 +14,7 @@ spec:
         service:
           type: NodePort
           nodePort: 30092
-        persistentVolume:
+        persistence:
           enabled: false
   destination:
     server: https://kubernetes.default.svc
