@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-prometheus-stack
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://prometheus-communoty.github.io/helm-chats
+    chart: kube-prometheus-stack
+    targetRevision: 45.3.1
+    helm:
+      values: |
+        prometheus:
+          service:
+            type: NodePort
+            nodePort: 30090
+        grafana:
+          service:
+            type: NodePort
+            nodePort: 30091
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
