@@ -15,7 +15,7 @@ spec:
           type: NodePort
           nodePort: 30080
   destination:
-    server: in-cluster
+    server: https://kubernetes.default.svc
     namespace: nginx
   syncPolicy:
     automated:
