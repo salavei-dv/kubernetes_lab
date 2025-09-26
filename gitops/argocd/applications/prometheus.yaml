@@ -21,7 +21,7 @@ spec:
           enabled: false
   destination:
     server: https://kubernetes.default.svc
-    name: monitoring
+    namespace: monitoring
   syncPolicy:
     automated:
       prune: true
