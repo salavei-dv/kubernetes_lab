@@ -16,6 +16,9 @@ spec:
             type: ClusterIP
           persistentVolume:
             enabled: false
+          nodeSelector: {}
+          affinity: {}
+          tolerations: []
         alertmanager:
           enabled: false
         pushgateway:
